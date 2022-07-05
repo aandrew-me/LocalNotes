@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>LocalNotes - Offline Notes</title>
+    <meta name="title" content="LocalNotes - Offline Notes">
+    <meta name="description"
+        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LocalNotes - Offline Notes">
+    <meta property="og:description"
+        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+    <meta property="og:image" content="/assets/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="LocalNotes - Offline Notes">
+    <meta property="twitter:description"
+        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+    <meta property="twitter:image" content="/assets/favicon.png">
+
+
+    <link rel="stylesheet" href="index.css">
+    <title>LocalNotes</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <script src="index.js" defer></script>
+
+</head>
+
+<body id="body" class="body-light">
+    <h1>Local Notes</h1>
+
+    <img src="assets/menu.png" alt="menu" id="menu-icon" onclick="toggle()">
+
+    <div id="menu">
+        <table>
+            <!-- Themes -->
+            <tr>
+                <td>Theme :</td>
+                <td>
+                    <select onchange="themeChange()" name="theme" id="theme-select">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Font size -->
+            <tr>
+                <td>Font size :</td>
+                <td>
+                    <select onchange="fontSizeChange()" name="font" id="font-size-select">
+
+                        <option value="small">Small</option>
+                        <option value="large">Medium</option>
+                        <option value="x-large">Large</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Font style :</td>
+                <td><select onchange="fontFamilyChange()" name="font-style" id="font-style-select">
+                        <option value="system-ui">System</option>
+                        <option value="monospace">Monospace</option>
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans-Serif</option>
+                    </select></td>
+            </tr>
+        </table>
+    </div>
+
+    <textarea class="textarea-light" onkeyup="syncNotes()" id="notes">Hello world</textarea>
+
+</body>
+
+</html>
