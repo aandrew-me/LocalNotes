@@ -1,0 +1,12 @@
+{
+    "name":"LocalNotes",
+    "short_name":"localNotes",
+    "start_url":"/",
+    "icons":[],
+    "display":"fullscreen",
+    "orientation":"portrait",
+    "theme_color":"white",
+    "background_color":"white",
+    "description":"Store notes locally in your browser",
+    "scope":"/"
+}
