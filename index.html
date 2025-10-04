@@ -7,81 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="_butXuNJ3q8YGAcCLg2iRdaenDlF-UVI_aCjSM0F8TQ" />
 
-    <!-- Primary Meta Tags -->
-    <title>LocalNotes - Offline Notes</title>
+    <title>LocalNotes - Offline Multi-Tab Notes</title>
     <meta name="title" content="LocalNotes - Offline Notes">
-    <meta name="description"
-        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+    <meta name="description" content="LocalNotes is an offline note-taking app that stores notes in your browser. Your notes never leave your device.">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="LocalNotes - Offline Notes">
-    <meta property="og:description"
-        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+    <meta property="og:description" content="LocalNotes is an offline note-taking app that stores notes in your browser.">
     <meta property="og:image" content="/assets/favicon.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="LocalNotes - Offline Notes">
-    <meta property="twitter:description"
-        content="LocalNotes is an offline note taking site that stores notes in the browser's local storage. Your notes will never leave your browser.">
+    <meta property="twitter:description" content="LocalNotes is an offline note-taking app that stores notes in your browser.">
     <meta property="twitter:image" content="/assets/favicon.png">
 
-
     <link rel="stylesheet" href="index.css">
-    <title>LocalNotes</title>
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-    <script src="index.js" defer></script>
-
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color">
 
+    <script src="index.js" defer></script>
 </head>
 
 <body id="body" class="body-light">
-    <h1>Local Notes</h1>
 
-    <img src="assets/menu.png" alt="menu" id="menu-icon" onclick="toggle()">
+    <div class="app-container">
+        <header>
+            <h1>LocalNotes</h1>
+            <div class="menu-container">
+                <img src="assets/menu.png" alt="menu" id="menu-icon" onclick="toggleMenu()">
+                <div id="menu">
+                    <table>
+                        <tr>
+                            <td>Theme:</td>
+                            <td>
+                                <select onchange="themeChange()" name="theme" id="theme-select">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Font Size:</td>
+                            <td>
+                                <select onchange="fontSizeChange()" name="font" id="font-size-select">
+                                    <option value="small">Small</option>
+                                    <option value="large" selected>Medium</option>
+                                    <option value="x-large">Large</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Font Style:</td>
+                            <td>
+                                <select onchange="fontFamilyChange()" name="font-style" id="font-style-select">
+                                    <option value="system-ui">System</option>
+                                    <option value="monospace">Monospace</option>
+                                    <option value="serif">Serif</option>
+                                    <option value="sans-serif">Sans-Serif</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </header>
 
-    <div id="menu">
-        <table>
-            <!-- Themes -->
-            <tr>
-                <td>Theme :</td>
-                <td>
-                    <select onchange="themeChange()" name="theme" id="theme-select">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                </td>
-            </tr>
+        <div id="tab-bar">
+            <ul id="tab-list">
+                </ul>
+            <button id="new-note-btn">+</button>
+        </div>
 
-            <!-- Font size -->
-            <tr>
-                <td>Font size :</td>
-                <td>
-                    <select onchange="fontSizeChange()" name="font" id="font-size-select">
+        <main>
+            <textarea id="notes" onkeyup="updateNoteContent()"></textarea>
+        </main>
 
-                        <option value="small">Small</option>
-                        <option value="large">Medium</option>
-                        <option value="x-large">Large</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Font style :</td>
-                <td><select onchange="fontFamilyChange()" name="font-style" id="font-style-select">
-                        <option value="system-ui">System</option>
-                        <option value="monospace">Monospace</option>
-                        <option value="serif">Serif</option>
-                        <option value="sans-serif">Sans-Serif</option>
-                    </select></td>
-            </tr>
-        </table>
     </div>
-
-    <textarea class="textarea-light" onkeyup="syncNotes()" id="notes">Hello world</textarea>
 
 </body>
 
